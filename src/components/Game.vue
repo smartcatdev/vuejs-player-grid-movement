@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         moveLeft() {
-            if ([1, 11, 21, 31, 41, 51, 61, 71, 81, 91].includes(this.currentPosition)) {
+            if ((this.currentPosition - 1) % 10 == 0) {
                 return false
             }
 
