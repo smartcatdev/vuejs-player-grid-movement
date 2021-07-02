@@ -2,24 +2,24 @@
     <div>
         <div id="grid">
             <div v-for="number in gridSize*gridSize" 
-                :class="{ 'active': number == currentPosition }"
+                :class="{ 'active': number == getCurrentPosition() }"
                 :key="number" 
                 class="block">
             </div>
         </div>
+        
+        <Controls/>
 
-        <div id="buttons">
-            <button v-on:click="moveLeft" class="hidden">Left</button>
-            <button v-on:click="moveRight" class="hidden">Right</button>
-            <button v-on:click="moveUp" class="hidden">Up</button>
-            <button v-on:click="moveDown" class="hidden">Down</button>
-        </div>
     </div>
 
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import Controls from './Controls.vue'
+
 export default {
+    components: { Controls },
     name: 'Game',
     props: {
         gridSize: Number,
@@ -30,31 +30,11 @@ export default {
         }
     },
     methods: {
-        moveLeft() {
-            if ((this.currentPosition - 1) % 10 == 0) {
-                return false
-            }
+        ...mapGetters([
+            'getCurrentPosition'
+        ])
+    },
 
-            return this.currentPosition -= 1
-        },
-        moveRight() {
-            if (this.currentPosition % 10 == 0) {
-                return false
-            }
-            return !! (this.currentPosition += 1)
-        },
-        moveUp() {
-            if (this.currentPosition >= 11) {
-                return !! (this.currentPosition -= 10)
-            }
-            return false
-        },
-        moveDown() {
-            if (this.currentPosition <= 89) {
-                return !! (this.currentPosition += 10)
-            }
-        }
-    }
 }
 </script>
 

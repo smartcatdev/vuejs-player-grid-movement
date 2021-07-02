@@ -1,4 +1,5 @@
-# robot
+# Player movement within a grid in VueJS
+built with vue-cli
 
 ## Project setup
 ```
