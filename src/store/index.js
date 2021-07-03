@@ -29,7 +29,7 @@ export default new Vuex.Store({
       }
     },
     moveDown() {
-      if (this.state.playerPosition < 90) {
+      if (this.state.playerPosition <= 90) {
         this.commit('UPDATE_POSITION', +10)
       }
     }

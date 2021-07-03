@@ -1,9 +1,9 @@
 <template>
     <div id="buttons">
-        <button v-on:click="moveLeft" class="hidden">Left</button>
-        <button v-on:click="moveRight" class="hidden">Right</button>
-        <button v-on:click="moveUp" class="hidden">Up</button>
-        <button v-on:click="moveDown" class="hidden">Down</button>
+        <button v-on:click="moveLeft" class="button">Left</button>
+        <button v-on:click="moveRight" class="button">Right</button>
+        <button v-on:click="moveUp" class="button">Up</button>
+        <button v-on:click="moveDown" class="btn btn-primary">Down</button>
     </div>
 </template>
 

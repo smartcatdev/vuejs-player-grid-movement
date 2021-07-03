@@ -1,9 +1,9 @@
 <template>
     <div>
         <div id="grid">
-            <div v-for="number in gridSize*gridSize" 
+            <div v-for="(number, index) in 100" 
                 :class="{ 'active': number == getCurrentPosition() }"
-                :key="number" 
+                :key="index" 
                 class="block">
             </div>
         </div>
@@ -24,11 +24,7 @@ export default {
     props: {
         gridSize: Number,
     },
-    data() {
-        return {
-            currentPosition: 1
-        }
-    },
+
     methods: {
         ...mapGetters([
             'getCurrentPosition'
